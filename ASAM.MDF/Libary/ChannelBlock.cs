@@ -72,21 +72,21 @@ namespace ASAM.MDF.Libary
             m_ptrChannelComment = BitConverter.ToUInt32(data, 16);
             Type = (ChannelType)BitConverter.ToUInt16(data, 20);
             SignalName = Encoding.GetEncoding(Mdf.IDBlock.CodePage).GetString(data, 22, 32);
-            SignalDescription = Encoding.GetEncoding(Mdf.IDBlock.CodePage).GetString(data, 64, 128);
-            BitOffset = BitConverter.ToUInt16(data, 192);
-            NumberOfBits = BitConverter.ToUInt16(data, 194);
-            SignalType = (SignalType)BitConverter.ToUInt16(data, 196);
-            ValueRange = BitConverter.ToBoolean(data, 198);
+            SignalDescription = Encoding.GetEncoding(Mdf.IDBlock.CodePage).GetString(data, 54, 128);
+            BitOffset = BitConverter.ToUInt16(data, 182);
+            NumberOfBits = BitConverter.ToUInt16(data, 184);
+            SignalType = (SignalType)BitConverter.ToUInt16(data, 186);
+            ValueRange = BitConverter.ToBoolean(data, 188);
             if (ValueRange)
             { 
-                MinValue = BitConverter.ToDouble(data, 200);
-                MaxValue = BitConverter.ToDouble(data, 202);
+                MinValue = BitConverter.ToDouble(data, 190);
+                MaxValue = BitConverter.ToDouble(data, 198);
             }
             
-            SampleRate = BitConverter.ToDouble(data, 204);
-            m_ptrLongSignalName = BitConverter.ToUInt32(data, 206);
-            m_ptrDisplayName = BitConverter.ToUInt32(data, 210);
-            AdditionalByteOffset = BitConverter.ToUInt16(data, 214);
+            SampleRate = BitConverter.ToDouble(data, 206);
+            m_ptrLongSignalName = BitConverter.ToUInt32(data, 214);
+            m_ptrDisplayName = BitConverter.ToUInt32(data, 218);
+            AdditionalByteOffset = BitConverter.ToUInt16(data, 222);
 
             if (m_ptrChannelExtensionBlock != 0)
             {
